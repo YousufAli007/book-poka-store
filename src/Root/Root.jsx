@@ -3,13 +3,18 @@ import Navber from '../Componant/Navber/Navber';
  
 import { Outlet } from 'react-router';
 import Footer from '../Componant/Footer/Footer';
+import Container from '../Componant/Container/Container';
  
  const Root = () => {
   return (
     <div>
+       
       <Navber></Navber>
-      <Outlet></Outlet>
-       <Footer></Footer>
+      <Container>
+        <Outlet></Outlet>
+      </Container>
+      <Footer></Footer>
+       
     </div>
   );
  };
