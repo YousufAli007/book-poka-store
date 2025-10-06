@@ -1,14 +1,18 @@
 import { Container } from 'lucide-react';
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoredDB } from '../Utility/addToDB';
 
 const BookDetails = () => {
   const { id } = useParams()
   const numId = parseInt(id)
   const data = useLoaderData()
   const singleData = data.find(book => book.bookId === numId);
-  const { bookName, category, image, publisher, rating, review,  totalPages, yearOfPublishing, author } = singleData || {}
-  console.log(singleData)
+  const { bookName, category, image, publisher, rating, review,  totalPages, yearOfPublishing, author } = singleData ;
+  const handleReadBook =(id)=>{
+     addToStoredDB(id)
+  }
+   
   return (
 
     <div className='my-10 flex flex-col lg:flex-row gap-10'>
@@ -40,7 +44,7 @@ const BookDetails = () => {
             <p>{rating}</p>
           </div>
         </div>
-        <button className="btn btn-active mr-3">Read</button>
+        <button onClick={()=>handleReadBook(numId)} className="btn btn-active mr-3">Read</button>
         <button className="btn btn-active btn-primary">Wishlist</button>
 
 
