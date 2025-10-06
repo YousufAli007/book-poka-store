@@ -1,11 +1,12 @@
  import React from 'react';
 import Container from '../Container/Container';
+import { Link } from 'react-router';
  
  const Navber = () => {
   const link =<>
  
-    <li className='mx-3'>item 1</li>
-    <li className='mx-3'>item 2</li>
+    <Link to='/'><li className='mx-3'>Home</li></Link>
+    <Link to='./about'><li className='mx-3'>About</li></Link>
   
   </>
   
@@ -13,6 +14,7 @@ import Container from '../Container/Container';
   return (
     <div className='shadow-md'>
     <Container>
+
       <div className="navbar bg-base-100 ">
   <div className="navbar-start">
     <div className="dropdown">
